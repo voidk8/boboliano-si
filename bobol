@@ -1,0 +1,84 @@
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Opciones interactivas</title>
+
+<style>
+body{
+  font-family: Arial;
+  background:#111;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+#box{
+  background:#222;
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+  width:350px;
+}
+
+button{
+  margin:10px;
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div id="box">
+
+<img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" width="250">
+
+<h3 id="texto">¿Qué quieres hacer?</h3>
+
+<div id="opciones">
+<button onclick="opcion1()">Opción 1</button>
+<button onclick="opcion2()">Opción 2</button>
+</div>
+
+</div>
+
+<script>
+
+function opcion1(){
+  document.getElementById("texto").innerText="Elegiste opción 1 ¿Ahora qué?";
+  document.getElementById("opciones").innerHTML=`
+    <button onclick="sub1()">Continuar</button>
+    <button onclick="volver()">Volver</button>
+  `;
+}
+
+function opcion2(){
+  document.getElementById("texto").innerText="Elegiste opción 2 ¿Quieres seguir?";
+  document.getElementById("opciones").innerHTML=`
+    <button onclick="alert('Elegiste seguir')">Sí</button>
+    <button onclick="volver()">No</button>
+  `;
+}
+
+function sub1(){
+  document.getElementById("texto").innerText="Siguiente nivel desbloqueado 🚀";
+  document.getElementById("opciones").innerHTML=`
+    <button onclick="volver()">Reiniciar</button>
+  `;
+}
+
+function volver(){
+  location.reload();
+}
+
+</script>
+
+</body>
+</html>
